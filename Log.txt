@@ -1,0 +1,7 @@
+06/21/2016
+
+Ran tfcnn.py, i.e. the tutorial code for CNN on MNIST, with the given
+hyperparameters, with an accuracy of 0.9925
+
+Now we modify the hyperparameters.
+
