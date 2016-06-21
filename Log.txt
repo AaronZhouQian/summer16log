@@ -7,3 +7,8 @@ hyperparameters, with an accuracy of 0.9925
 
 Now we modify the hyperparameters.
 
+First, add one more convolution and max pooling layer.
+The code is at https://github.com/AaronZhouQian/tftutorial/blob/master/3conv_layers.py
+
+
+
