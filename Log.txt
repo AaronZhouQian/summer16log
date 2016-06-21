@@ -2,13 +2,14 @@
 
 The code is in the repository https://github.com/AaronZhouQian/tftutorial
 
-Ran tfcnn.py, i.e. the tutorial code for CNN on MNIST, with the given
-hyperparameters, with an accuracy of 0.9925
+Ran tfcnn.py, i.e. the tutorial code for CNN on MNIST, three times with the given
+hyperparameters, with accuracies of 0.9925, 0.993, 0.9922.
 
 Now we modify the hyperparameters.
 
 First, add one more convolution and max pooling layer.
 The code is at https://github.com/AaronZhouQian/tftutorial/blob/master/3conv_layers.py
+
 
 
 
