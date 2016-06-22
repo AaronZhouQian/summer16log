@@ -1,5 +1,8 @@
-06/21/2016
+Lab Log File for the Work at Theoretical and Emprical Data Science at UCLA in Summer 2016
 
+----
+Date: 06/21/2016
+----
 The code is in the repository https://github.com/AaronZhouQian/tftutorial
 
 Ran tfcnn.py, i.e. the tutorial code for CNN on MNIST, three times with the given
@@ -54,6 +57,11 @@ where n1,n2=2^i, i=0,1,2,3,4,5,6,7.
 
 The testing accuracies can be seen at https://github.com/AaronZhouQian/tftutorial/blob/master/channel_accuracies.txt
 
+----
+Date: 06/21/2016
+----
+
+Continuing to modify the parameters
 #------------------------------------------------#
 Modification 4:
 Now we change the stride length (across both width and height of the inputs).
@@ -61,6 +69,10 @@ Now we change the stride length (across both width and height of the inputs).
 If we change the convolution stride length from 1 to 2, then after the first convolutional layer, since the original image is 28x28, 
 the output of the convolutional layer would be 14x14, which would be further reduced to 7x7 by the first max pooling layer.
 So let's get rid of the second conv+max_pooling layer first.
+
+We ran the algorithm with stride length l for the convolution layer for l in [2,3,4,5,6]
+
+
 
 
 
