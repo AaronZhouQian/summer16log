@@ -38,6 +38,7 @@ Testing accuracies:
 0.9920, 0.9921, 0.9913
 
 Conclusion: I do not see significant differences across different filter sizes in this range.
+Bigger ranges to be tested.
 
 The code is at https://github.com/AaronZhouQian/tftutorial/blob/master/window_hypertfcnn.py
 
