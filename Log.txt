@@ -81,6 +81,12 @@ The code is at: https://github.com/AaronZhouQian/tftutorial/blob/master/1conv1ma
 
 
 
+I've also written the code to change the stopping criterion for the training:
+We keep the validation accuracies in a queue containing three elements.
+If the oldest accuracy is the maximum of all three then we stop.
+
+
+
 
 
 
