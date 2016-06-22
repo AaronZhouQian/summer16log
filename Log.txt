@@ -23,7 +23,7 @@ and ran the algorithm three times for each n=[3,4,5,6,7]
 
 Testing accuracies:
 3x3:
-0.992, 0.9908, 0.9918
+0.9920, 0.9908, 0.9918
 
 4x4:
 0.9921, 0.9924, 0.9923,
@@ -35,7 +35,7 @@ Testing accuracies:
 0.9918, 0.9923, 0.9887
 
 7x7:
-0.992, 0.9921, 0.9913
+0.9920, 0.9921, 0.9913
 
 The code is at https://github.com/AaronZhouQian/tftutorial/blob/master/window_hypertfcnn.py
 
