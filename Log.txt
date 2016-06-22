@@ -7,6 +7,7 @@ hyperparameters, with testing accuracies of 0.9925, 0.993, 0.9922.
 
 Now we modify the hyperparameters.
 
+#-------------------------------------------------#
 Modification 1:
 Added one more convolution without adding a max pooling layer.
 The reason why we didn't add a max pooling layer is because after the third convolution layer,
@@ -17,6 +18,8 @@ The testing accuracies were 0.9923, 0.9912, 0.9929.
 
 The code is at https://github.com/AaronZhouQian/tftutorial/blob/master/3conv_layers.py
 
+
+#------------------------------------------------#
 Modification 2:
 Changed the nxn dimension of the filter of the convolutional layers to be n= [3,4,5,6,7]
 and ran the algorithm three times for each n=[3,4,5,6,7]
@@ -42,6 +45,7 @@ Bigger ranges to be tested.
 
 The code is at https://github.com/AaronZhouQian/tftutorial/blob/master/window_hypertfcnn.py
 
+#------------------------------------------------#
 Modification 3:
 
 Next, let's blow up the number of output channels.
@@ -50,7 +54,13 @@ where n1,n2=2^i, i=0,1,2,3,4,5,6,7.
 
 The testing accuracies can be seen at https://github.com/AaronZhouQian/tftutorial/blob/master/channel_accuracies.txt
 
+#------------------------------------------------#
+Modification 4:
+Now we change the stride length (across both width and height of the inputs).
 
+If we change the convolution stride length from 1 to 2, then after the first convolutional layer, since the original image is 28x28, 
+the output of the convolutional layer would be 14x14, which would be further reduced to 7x7 by the first max pooling layer.
+So let's get rid of the second conv+max_pooling layer first.
 
 
 
