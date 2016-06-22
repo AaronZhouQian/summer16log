@@ -3,7 +3,7 @@
 The code is in the repository https://github.com/AaronZhouQian/tftutorial
 
 Ran tfcnn.py, i.e. the tutorial code for CNN on MNIST, three times with the given
-hyperparameters, with accuracies of 0.9925, 0.993, 0.9922.
+hyperparameters, with testing accuracies of 0.9925, 0.993, 0.9922.
 
 Now we modify the hyperparameters.
 
@@ -11,6 +11,10 @@ First, add one more convolution without adding a max pooling layer.
 The reason why we didn't add a max pooling layer is because after the third convolution layer,
 the dimension of the images had become 7x7.
 The code is at https://github.com/AaronZhouQian/tftutorial/blob/master/3conv_layers.py
+
+The testing accuracies were 0.9923, 0.9912, 0.9929.
+
+
 
 
 
