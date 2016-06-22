@@ -45,6 +45,10 @@ The code is at https://github.com/AaronZhouQian/tftutorial/blob/master/window_hy
 Modification 3:
 
 Next, let's blow up the number of output channels.
+We have two convolutional layers. We ran the algorithm with the sizes of the filter to be n1xn1, n2xn2 respectively,
+where n1,n2=2^i, i=0,1,2,3,4,5,6,7.
+
+The testing accuracies can be seen at https://github.com/AaronZhouQian/tftutorial/blob/master/channel_accuracies.txt
 
 
 
