@@ -73,6 +73,14 @@ So let's get rid of the second conv+max_pooling layer first.
 We ran the algorithm three times for each stride length l for the convolution layer for l in range(1:filter_size), 
 since the stride length cannot be greater than the filter_size, which we take to be 5 in this case.
 
+The result is at: https://github.com/AaronZhouQian/tftutorial/blob/master/conv_strides_accuracies.txt
+
+We see that the greater the stride lengths the lower the accuracy.
+
+The code is at: https://github.com/AaronZhouQian/tftutorial/blob/master/1conv1maxpool_pool_strides.py
+
+
+
 
 
 
