@@ -41,6 +41,18 @@ Conclusion: I do not see significant differences across different filter sizes i
 
 The code is at https://github.com/AaronZhouQian/tftutorial/blob/master/window_hypertfcnn.py
 
+Modification 3:
+
+Next, let's blow up the number of output channels.
+
+
+
+
+
+
+
+
+
 
 
 
