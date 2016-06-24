@@ -1,8 +1,8 @@
 Lab Log File for the Work at Theoretical and Emprical Data Science at UCLA in Summer 2016
 
-----
+****************
 Date: 06/21/2016
-----
+****************
 The code is in the repository https://github.com/AaronZhouQian/tftutorial
 
 Ran tfcnn.py, i.e. the tutorial code for CNN on MNIST, three times with the given
@@ -57,9 +57,12 @@ where n1,n2=2^i, i=0,1,2,3,4,5,6,7.
 
 The testing accuracies can be seen at https://github.com/AaronZhouQian/tftutorial/blob/master/channel_accuracies.txt
 
-----
-Date: 06/21/2016
-----
+
+
+****************
+Date: 06/22/2016
+****************
+
 
 Continuing to modify the parameters
 #------------------------------------------------#
@@ -86,6 +89,19 @@ We keep the validation accuracies in a queue containing three elements.
 If the oldest accuracy is the maximum of all three then we stop.
 
 
+****************
+Date: 06/23/2016
+****************
+
+Ran the LSTM theano code on the server.
+
+Tried to understand the code in order to replicate it in Tensorflow.
+
+
+
+****************
+Date: 06/24/2016
+****************
 
 
 
