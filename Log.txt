@@ -120,6 +120,20 @@ Date: 06/28/2016
 
 Finishing up the code conversion from LSTM from theano to tensorflow
 
+Walked throught the code for CNN in tensorflow and lstm in Theano.
+
+*****************
+Date: 06/29/2016
+*****************
+
+Came across an interesting thing: 
+currently there are still incompatibilities between numpy matrix slicing and tensorflow matrix slicing.
+See the answer to the question here: 
+http://stackoverflow.com/questions/37102621/why-cant-i-one-hot-encode-my-labels-with-tensorflow-bad-slice-index-none-of-t
+
+
+
+
 
 
 
