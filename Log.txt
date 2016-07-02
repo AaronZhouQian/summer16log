@@ -151,6 +151,13 @@ on the other we have,
 https://github.com/AaronZhouQian/lstm_tensorflow_imdb/blob/master/lstm_tf_imdb_modified.py
 
 
+One obstacle came up. In order to make the code fast, we want to create all the operations in the initialization step.
+Since we want to iterate over the maximum length of the sentences in each mini-batch, which value is unknown, we would
+want to use something like the scan function in theano which performs loops over symbolic variables.
+
+However, there is no such function available right now in Tensorflow.
+
+
 
 
 
