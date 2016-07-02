@@ -132,6 +132,36 @@ See the answer to the question here:
 http://stackoverflow.com/questions/37102621/why-cant-i-one-hot-encode-my-labels-with-tensorflow-bad-slice-index-none-of-t
 
 
+*****************
+Date: 06/30/2016
+*****************
+Ran across the problem that the code for LSTM in Tensorflow for the IMDB data didn't run on GPU and didn't seem to converge
+
+*****************************
+Date: 07/01/2016 - 07/02/2016
+*****************************
+The error message showed that the datatype INT32 is not supported for GPU.
+
+Performed side by side comparison in order to debug, one mini-batch at a time, 
+between the original code in theano and the new one in tensorflow.
+
+On the one hand we have,
+https://github.com/AaronZhouQian/theanotutorial/blob/master/tfmodified.py
+on the other we have,
+https://github.com/AaronZhouQian/lstm_tensorflow_imdb/blob/master/lstm_tf_imdb_modified.py
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
