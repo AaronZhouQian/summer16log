@@ -150,13 +150,19 @@ https://github.com/AaronZhouQian/theanotutorial/blob/master/tfmodified.py
 on the other we have,
 https://github.com/AaronZhouQian/lstm_tensorflow_imdb/blob/master/lstm_tf_imdb_modified.py
 
+When I performed the side by side comparison, I realized that the tensorflow code was a lot slower.
+The reason is because the code had to recreate all the nodes for every mini-batch. 
+The reason why I did that in the beginning was because the maximum length of the sentences in each
+mini-batch was unknown at compile time. 
+However, I realized that I could make the code a lot faster just by compiling every nodes of the graph 
+only once when the lstm object was first created. This can be achieved by performing loops over symbolic 
+variables.
 
-One obstacle came up. In order to make the code fast, we want to create all the operations in the initialization step.
+But one obstacle came up. In order to make the code fast, we want to create all the operations in the initialization step.
 Since we want to iterate over the maximum length of the sentences in each mini-batch, which value is unknown, we would
 want to use something like the scan function in theano which performs loops over symbolic variables.
 
-However, there is no such function available right now in Tensorflow.
-
+However, lots of error messages came up.
 
 
 
