@@ -177,10 +177,16 @@ I came up with another solution:
 We only take sentences with length less than MAXLEN and take all the mask to be of that length and iterate MAXLEN for all sentences.
 We would then be able to use a for loop that iterates MAXLEN times for every mini-batch of data.
 
-The new solution worked. Initially we faced GPU resource exhaustion errors. Then I realized that we should've placed the word
-embedding matrix, which is vocabulary_size x 128 to tf.device("/cpu:0"), so that it doesn't take up the GPU memory.
+The new solution worked. Initially we faced GPU resource exhaustion errors. Then I realized this was caused by the fact that
+when the program multiplies the input with the embedding the operation couldn't be placed on the gpu.
+So I used the tf.nn.embedding_lookup which instead, which solved the problem.
 
+Then there was the optimization problem where it happened that neither GradientDescentOptimizer nor AdadeltaOptimizer worked,
+i.e. the accuracy didn't improve at all. So I tried a third optimizer AdamOptimizer which worked wonders.
 
+*****************
+Date: 07/04/2016
+*****************
 
 
 
