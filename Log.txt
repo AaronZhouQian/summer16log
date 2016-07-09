@@ -202,6 +202,8 @@ Implemented the GRU cell.
 
 Surprisingly both the validation and testing accuracies for the GRU cell are better than the standard LSTM cell.
 
+Both models have similar runtime speed.
+
 For the GRU cell with only one layer, the validation and testing accuracies reached around 87% when limited to
 reviews with lengths less than 100 words.
 
