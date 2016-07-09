@@ -184,9 +184,28 @@ So I used the tf.nn.embedding_lookup which instead, which solved the problem.
 Then there was the optimization problem where it happened that neither GradientDescentOptimizer nor AdadeltaOptimizer worked,
 i.e. the accuracy didn't improve at all. So I tried a third optimizer AdamOptimizer which worked wonders.
 
+*****************************
+Date: 07/04/2016 - 07/06/2016
+*****************************
+
+Kept working on the LSTM code on Tensorflow.
+
+Walked throught the code with other people.
+
+
+
 *****************
-Date: 07/04/2016
+Date: 07/07/2016 -07/08/2016
 *****************
+
+Implemented the GRU cell.
+
+Surprisingly both the validation and testing accuracies for the GRU cell are better than the standard LSTM cell.
+
+For the GRU cell with only one layer, the validation and testing accuracies reached around 87% when limited to
+reviews with lengths less than 100 words.
+
+
 
 
 
