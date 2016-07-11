@@ -12,7 +12,7 @@ def matrix():
     start_time = time.time()
     for i in range(100):
         y=T.dot(y,x)
-    f = theano.function(x,y)
+    f = theano.function([x,y],y)
     print(f(matrix,np.eye(matrix_dim,dtype='float32')))
     end_time = time.time()
     total_time = end_time - start_time
