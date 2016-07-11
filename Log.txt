@@ -209,6 +209,8 @@ reviews with lengths less than 100 words.
 
 Timining for training 20 epochs, without validation, without saving parameters:
 Theano LSTM: about 56 seconds
+Theano GRU: about 87 seconds
+
 Tensorflow LSTM with mask: about 231 seconds
 Tensorflow LSTM without mask: about 172 seconds
 Tensorflow GRU with mask: about 299 seconds
