@@ -1,6 +1,7 @@
 import numpy as np
 import theano
 import theano.tensor as T
+import time
 
 np.random.seed(23)
 matrix_dim = 1000
