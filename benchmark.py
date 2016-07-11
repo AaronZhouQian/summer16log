@@ -6,8 +6,8 @@ np.random.seed(23)
 matrix_dim = 1000
 def matrix():
     matrix= np.random.randn(matrix_dim, matrix_dim)
-    x = T.fmatrix(name="x",dtype='float32')
-    y = T.fmatrix(name="y",dtype='float32')
+    x = T.matrix(name="x",dtype='float32')
+    y = T.matrix(name="y",dtype='float32')
     start_time = time.time()
     for i in range(100):
         y=T.dot(y,x)
