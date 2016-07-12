@@ -4,21 +4,17 @@ import theano.tensor as T
 import time
 
 np.random.seed(23)
-matrix_dim = 1000
+matrix_dim = 10000
 def matrix():
-    matrix= np.random.randn(matrix_dim, matrix_dim).astype('float32')
+    matrix= np.random.rand(matrix_dim, matrix_dim).astype('float32')
     x = T.matrix(name="x",dtype='float32')
-    #y = T.matrix(name="y",dtype='float32')
-    y = theano.shared(np.eye(matrix_dim,dtype='float32'),name="y")
-    start_time = time.time()
-    for i in range(100):
-        y=T.dot(y,x)
+    y = T.dot(x,x)
     f = theano.function([x],y)
-    print(f(matrix))
+    start_time = time.time()
     end_time = time.time()
+    print(f(matrix))
     total_time = end_time - start_time
     print("total time is: ", total_time)
-    print("time per multiplication: ", total_time/100)
 
 
 def main():
