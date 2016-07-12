@@ -9,8 +9,8 @@ def matrix():
     matrix= np.random.rand(matrix_dim, matrix_dim).astype('float32')
     x = T.matrix(name="x",dtype='float32')
     y = T.dot(x,x)
-    f = theano.function([x],y)
     start_time = time.time()
+    f = theano.function([x],y)
     end_time = time.time()
     print(f(matrix))
     total_time = end_time - start_time
