@@ -11,8 +11,8 @@ def matrix():
     y = T.dot(x,x)
     start_time = time.time()
     f = theano.function([x],y)
-    end_time = time.time()
     print(f(matrix))
+    end_time = time.time()
     total_time = end_time - start_time
     print("total time is: %.5f" %total_time)
 
