@@ -8,12 +8,13 @@ matrix_dim = 1000
 def matrix():
     matrix= np.random.randn(matrix_dim, matrix_dim)
     x = T.matrix(name="x",dtype='float32')
-    y = T.matrix(name="y",dtype='float32')
+    #y = T.matrix(name="y",dtype='float32')
+    y = theano.shared(np.eye(matrix_dim,dtype='float32'),name="y")
     start_time = time.time()
     for i in range(100):
         y=T.dot(y,x)
     f = theano.function([x,y],y)
-    print(f(matrix,np.eye(matrix_dim,dtype='float32')))
+    print(f(matrix,y))
     end_time = time.time()
     total_time = end_time - start_time
     print("total time is: ", total_time)
