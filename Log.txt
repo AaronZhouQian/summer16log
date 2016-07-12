@@ -220,7 +220,12 @@ Tensorflow GRU with mask: about 299 seconds
 Benchmar between theano and tf
 
 1. Matrix Multiplications:
-random 1000x1000 nprand matrix mul loop 100 times.
+10000x10000 np.random.rand matrix multiplication 1 time.
+Timing in seconds:
+Theano:
+0.44537, 0.44125, 0.44796, 0.44434, 0.44745
+Tensorflow:
+
 
 
 
