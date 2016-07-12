@@ -6,7 +6,7 @@ import time
 np.random.seed(23)
 matrix_dim = 1000
 def matrix():
-    matrix= np.random.randn(matrix_dim, matrix_dim)
+    matrix= np.random.randn(matrix_dim, matrix_dim).astype('float32')
     x = T.matrix(name="x",dtype='float32')
     #y = T.matrix(name="y",dtype='float32')
     y = theano.shared(np.eye(matrix_dim,dtype='float32'),name="y")
