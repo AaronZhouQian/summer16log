@@ -227,6 +227,15 @@ Theano:
 Tensorflow:
 0.81994, 0.91022, 0.82750, 0.84350, 0.84821
 
+2. Next, we test both packages by runing logistic regression on a small sample of the bio informatics
+challenge project for 300 epochs.
+
+The timings in seconds are:
+Theano:
+0.138920068741, 0.137877941132, 0.15475487709, 0.141859054565, 0.13254904747
+
+Tensorflow:
+1.77560591698, 1.73395991325, 1.71505498886, 1.73893809319, 1.77497601509
 
 
 
