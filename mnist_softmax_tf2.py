@@ -54,9 +54,10 @@ train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy)
 
 start_time = timeit.default_timer()
 # Train
-tf.initialize_all_variables().run(feed_dict={x:batch_xs, y_:batch_ys})
+
 
 with sess.as_default():
+	tf.initialize_all_variables().run(feed_dict={x: batch_xs, y_: batch_ys})
 	for j in range(50):
 		for i in range(0,50000,BATCH_SIZE):
 			# Test trained model
