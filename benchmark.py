@@ -4,7 +4,7 @@ import theano.tensor as T
 import time
 
 np.random.seed(23)
-matrix_dim = 10000
+matrix_dim = 15000
 def matrix():
     matrix= np.random.rand(matrix_dim, matrix_dim).astype('float32')
     x = T.matrix(name="x",dtype='float32')
