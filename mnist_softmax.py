@@ -51,8 +51,8 @@ train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy)
 start_time = timeit.default_timer()
 # Train
 tf.initialize_all_variables().run()
-for i in range(25000//6):
-	batch_xs, batch_ys = mnist.train.next_batch(600)
+for i in range(25000):
+	batch_xs, batch_ys = mnist.train.next_batch(100)
 	train_step.run({x: batch_xs, y_: batch_ys})
 
 	if i % 100 == 0:
