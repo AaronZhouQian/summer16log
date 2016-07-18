@@ -38,10 +38,10 @@ mnist = input_data.read_data_sets(FLAGS.data_dir, one_hot=True)
 sess = tf.InteractiveSession()
 
 # Create the model
-with tf.device("/cpu:0"):
-	x = tf.placeholder(tf.float32, [None, 784])
-	y_ = tf.placeholder(tf.float32, [None, 10])
-	
+
+x = tf.placeholder(tf.float32, [None, 784])
+y_ = tf.placeholder(tf.float32, [None, 10])
+
 W = tf.Variable(tf.zeros([784, 10]))
 b = tf.Variable(tf.zeros([10]))
 y = tf.nn.softmax(tf.matmul(x, W) + b)
