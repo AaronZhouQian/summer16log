@@ -28,41 +28,41 @@ from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
 import timeit
 
-with tf.device('/gpu:0'):
-	flags = tf.app.flags
-	FLAGS = flags.FLAGS
-	flags.DEFINE_string('data_dir', 'data', 'Directory for storing data')
 
-	mnist = input_data.read_data_sets(FLAGS.data_dir, one_hot=True)
+flags = tf.app.flags
+FLAGS = flags.FLAGS
+flags.DEFINE_string('data_dir', 'data', 'Directory for storing data')
 
-	sess = tf.InteractiveSession()
+mnist = input_data.read_data_sets(FLAGS.data_dir, one_hot=True)
 
-	# Create the model
-	x = tf.placeholder(tf.float32, [None, 784])
-	W = tf.Variable(tf.zeros([784, 10]))
-	b = tf.Variable(tf.zeros([10]))
-	y = tf.nn.softmax(tf.matmul(x, W) + b)
+sess = tf.InteractiveSession()
 
-	# Define loss and optimizer
-	y_ = tf.placeholder(tf.float32, [None, 10])
-	cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1]))
-	train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy)
+# Create the model
+x = tf.placeholder(tf.float32, [None, 784])
+W = tf.Variable(tf.zeros([784, 10]))
+b = tf.Variable(tf.zeros([10]))
+y = tf.nn.softmax(tf.matmul(x, W) + b)
 
-	start_time = timeit.default_timer()
-	# Train
-	tf.initialize_all_variables().run()
-	for i in range(25000//6):
-	    batch_xs, batch_ys = mnist.train.next_batch(600)
-	    train_step.run({x: batch_xs, y_: batch_ys})
+# Define loss and optimizer
+y_ = tf.placeholder(tf.float32, [None, 10])
+cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1]))
+train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy)
 
-	    if i % 100 == 0:
-	    # Test trained model
-	    	correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
-	    	accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-	    	print("%d iterations, accuracy: %f" % (i, accuracy.eval({x: mnist.test.images, y_: mnist.test.labels})))
+start_time = timeit.default_timer()
+# Train
+tf.initialize_all_variables().run()
+for i in range(25000//6):
+	batch_xs, batch_ys = mnist.train.next_batch(600)
+	train_step.run({x: batch_xs, y_: batch_ys})
 
-	end_time = timeit.default_timer()
-	print("final accuracy: %f" % accuracy.eval({x: mnist.test.images, y_: mnist.test.labels}))
-	print("total time: %.1fs" % (end_time - start_time))
+	if i % 100 == 0:
+	# Test trained model
+		correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
+		accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+		print("%d iterations, accuracy: %f" % (i, accuracy.eval({x: mnist.test.images, y_: mnist.test.labels})))
+
+end_time = timeit.default_timer()
+print("final accuracy: %f" % accuracy.eval({x: mnist.test.images, y_: mnist.test.labels}))
+print("total time: %.1fs" % (end_time - start_time))
 
 
