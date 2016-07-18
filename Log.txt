@@ -237,6 +237,51 @@ Theano:
 Tensorflow:
 1.77560591698, 1.73395991325, 1.71505498886, 1.73893809319, 1.77497601509
 
+*****************
+Date: 07/11/2016 - 07/14/2016
+*****************
+Wrote logistic regression in both tensorflow and theano for the transcription factor prediction challenge,
+i.e. the ENCODE dream challenge.
+
+Adapted the GRU code for the purpose of the ENCODE dream challenge.
+
+
+*****************
+Date: 07/11/2016 - 07/14/2016
+*****************
+
+Brandon and Vanessa performed the benchmark testing for logistic regression using the MNIST dataset
+between Theano and Tensorflow.
+
+They found out that Tensorflow is slower than Theano. However, what's more interesting is that
+the code ran even faster on CPU than on GPU for Tensorflow. 
+
+I think that the only explanation for this is that the data transfer to and from the GPU memory is offsetting 
+the speed gain by using the GPU for matrix multiplications.
+
+I searched online and realized that every time we call feed_dict, we're transfering data to GPU.
+
+In order to confirm the above suspicions, I changed the matrix multiplication benchmark code.
+
+Instead of using feed_dict at runtime, I initialized the big matrix variable during the initialize_all_variables()
+function call. We had a faster timing as a result:
+
+0.587691068649292
+0.5841159820556641
+0.5812911987304688
+0.5897948741912842
+0.569612979888916
+
+These timings are a lot closer to the Theano timings, which has an average of about 0.44 seconds.
+
+Then we modified the MNIST code for tensorflow, removing feed_dict.
+
+
+
+
+
+
+
 
 
 
