@@ -28,8 +28,7 @@ from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
 import timeit
 
-#with tf.device('/gpu:0'):
-if True:
+with tf.device('/gpu:0'):
 	flags = tf.app.flags
 	FLAGS = flags.FLAGS
 	flags.DEFINE_string('data_dir', 'data', 'Directory for storing data')
@@ -53,14 +52,14 @@ if True:
 	# Train
 	tf.initialize_all_variables().run()
 	for i in range(25000):
-	  batch_xs, batch_ys = mnist.train.next_batch(100)
-	  train_step.run({x: batch_xs, y_: batch_ys})
+	    batch_xs, batch_ys = mnist.train.next_batch(600)
+	    train_step.run({x: batch_xs, y_: batch_ys})
 
-	  if i % 100 == 0:
+	    if i % 100 == 0:
 	    # Test trained model
-	    correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
-	    accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-	    print("%d iterations, accuracy: %f" % (i, accuracy.eval({x: mnist.test.images, y_: mnist.test.labels})))
+	    	correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
+	    	accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+	    	print("%d iterations, accuracy: %f" % (i, accuracy.eval({x: mnist.test.images, y_: mnist.test.labels})))
 
 	end_time = timeit.default_timer()
 	print("final accuracy: %f" % accuracy.eval({x: mnist.test.images, y_: mnist.test.labels}))
