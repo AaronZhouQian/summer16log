@@ -51,7 +51,7 @@ with tf.device('/gpu:0'):
 	start_time = timeit.default_timer()
 	# Train
 	tf.initialize_all_variables().run()
-	for i in range(25000):
+	for i in range(25000//6):
 	    batch_xs, batch_ys = mnist.train.next_batch(600)
 	    train_step.run({x: batch_xs, y_: batch_ys})
 
