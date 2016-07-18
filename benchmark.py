@@ -16,7 +16,6 @@ def matrix():
     total_time = end_time - start_time
     print("total time is: %.5f" %total_time)
 
-
 def main():
     matrix()
 
