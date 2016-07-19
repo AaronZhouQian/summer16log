@@ -61,8 +61,8 @@ with sess.as_default():
         for i in range(0,50000,BATCH_SIZE):
             sess.run(inputs.assign(tf.slice(x, [i,0],[BATCH_SIZE,-1])))
             sess.run(train_step)
-            correct_prediction = tf.equal(tf.argmax(softmax_probabilities, 1), tf.argmax(labels, 1))
-            accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+            #correct_prediction = tf.equal(tf.argmax(softmax_probabilities, 1), tf.argmax(labels, 1))
+            #accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
     end_time = timeit.default_timer()
     print("total time: %.1fs" % (end_time - start_time))
 
