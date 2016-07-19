@@ -58,18 +58,15 @@ start_time = timeit.default_timer()
 
 
 with sess.as_default():
-	tf.initialize_all_variables().run(feed_dict={x: batch_xs.astype('float32'), y_: batch_ys.astype('float32')})
-	for j in range(50):
-		for i in range(0,50000,BATCH_SIZE):
-			# Test trained model
-			sess.run(inputs.assign(tf.slice(x, [i,0],[BATCH_SIZE,-1])))
-			sess.run(train_step)
-			correct_prediction = tf.equal(tf.argmax(softmax_probabilities, 1), tf.argmax(labels, 1))
-			accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-
-	end_time = timeit.default_timer()
-	print("final accuracy: %f" % accuracy.eval({x: mnist.test.images, y_: mnist.test.labels}))
-	print("total time: %.1fs" % (end_time - start_time))
+    tf.initialize_all_variables().run(feed_dict={x: batch_xs.astype('float32'), y_: batch_ys.astype('float32')})
+    for j in range(50):
+        for i in range(0,50000,BATCH_SIZE):
+            sess.run(inputs.assign(tf.slice(x, [i,0],[BATCH_SIZE,-1])))
+            sess.run(train_step)
+            correct_prediction = tf.equal(tf.argmax(softmax_probabilities, 1), tf.argmax(labels, 1))
+            accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+    end_time = timeit.default_timer()
+    print("total time: %.1fs" % (end_time - start_time))
 
 
 
