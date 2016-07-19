@@ -35,10 +35,11 @@ flags.DEFINE_string('data_dir', 'data', 'Directory for storing data')
 
 mnist = input_data.read_data_sets(FLAGS.data_dir, one_hot=True)
 batch_xs, batch_ys = mnist.train.next_batch(55000)
+type(batch_xs[0][0])
 sess = tf.Session()
 
 # Create the model
-x = tf.placeholder(tf.float32, [None, 784])
+x = tf.placeholder(tf.int32, [None, 784])
 y_ = tf.placeholder(tf.float32, [None, 10])
 
 inputs=tf.get_variable("input",trainable=False, shape=[BATCH_SIZE, 784])
