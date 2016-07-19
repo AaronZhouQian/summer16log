@@ -39,8 +39,8 @@ batch_xs, batch_ys = mnist.train.next_batch(55000)
 sess = tf.Session()
 
 # Create the model
-x=tf.get_variable("whole_data",validate_shape=False,initializer=batch_xs)
-y_=tf.get_variable("whole_labels",validate_shape=False,initializer=batch_ys)
+x=tf.get_variable("whole_data",validate_shape=False,initializer=batch_xs,trainable=False)
+y_=tf.get_variable("whole_labels",validate_shape=False,initializer=batch_ys,trainable=False)
 #x = tf.placeholder(tf.float32, [None, 784])
 #y_ = tf.placeholder(tf.float32, [None, 10])
 
