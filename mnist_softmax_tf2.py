@@ -36,9 +36,6 @@ flags.DEFINE_string('data_dir', 'data', 'Directory for storing data')
 mnist = input_data.read_data_sets(FLAGS.data_dir, one_hot=True)
 batch_xs, batch_ys = mnist.train.next_batch(55000)
 
-sess = tf.Session()
-
-# Create the model
 x = tf.placeholder(tf.float32, [None, 784])
 y_ = tf.placeholder(tf.float32, [None, 10])
 
@@ -54,15 +51,17 @@ cross_entropy = tf.reduce_mean(-tf.reduce_sum(labels * tf.log(softmax_probabilit
 train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy)
 
 start_time = timeit.default_timer()
-
+sess = tf.Session()
 with sess.as_default():
-    sess.run(tf.initialize_all_variables(),feed_dict={x:batch_xs,y_:batch_ys})
+    sess.run(tf.initialize_all_variables(), feed_dict={x:batch_xs,y_:batch_ys})
+    """
     for j in range(50):
         for i in range(0,50000,BATCH_SIZE):
             sess.run(inputs.assign(tf.slice(x, [i,0],[BATCH_SIZE,-1])))
             sess.run(train_step)
             #correct_prediction = tf.equal(tf.argmax(softmax_probabilities, 1), tf.argmax(labels, 1))
             #accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+    """
     end_time = timeit.default_timer()
     print("total time: %.1fs" % (end_time - start_time))
 
