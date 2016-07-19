@@ -39,10 +39,8 @@ batch_xs, batch_ys = mnist.train.next_batch(55000)
 sess = tf.Session()
 
 # Create the model
-x=tf.get_variable("whole_data",validate_shape=False,initializer=batch_xs,trainable=False)
-y_=tf.get_variable("whole_labels",validate_shape=False,initializer=batch_ys,trainable=False)
-#x = tf.placeholder(tf.float32, [None, 784])
-#y_ = tf.placeholder(tf.float32, [None, 10])
+x = tf.placeholder(tf.float32, [None, 784])
+y_ = tf.placeholder(tf.float32, [None, 10])
 
 inputs = tf.get_variable("input",dtype=tf.float32, trainable=False, shape=[BATCH_SIZE, 784])
 labels = tf.get_variable("labels",dtype=tf.float32, trainable=False, shape=[BATCH_SIZE,10])
@@ -58,7 +56,7 @@ train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy)
 start_time = timeit.default_timer()
 
 with sess.as_default():
-    sess.run(tf.initialize_all_variables())
+    sess.run(tf.initialize_all_variables(),feed_dict={x:batch_xs,y_:batch_ys})
     for j in range(50):
         for i in range(0,50000,BATCH_SIZE):
             sess.run(inputs.assign(tf.slice(x, [i,0],[BATCH_SIZE,-1])))
