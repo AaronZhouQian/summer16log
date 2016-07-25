@@ -27,6 +27,8 @@ from tensorflow.examples.tutorials.mnist import input_data
 
 import tensorflow as tf
 import timeit
+from tensorflow.python.client import timeline
+
 
 
 flags = tf.app.flags
@@ -59,11 +61,11 @@ sess.run(tf.initialize_all_variables())
 run_metadata = tf.RunMetadata()
 for i in range(25000):
 	batch_xs, batch_ys = mnist.train.next_batch(100)
-	sess.run(train_step(
+	sess.run([train_step],
 		feed_dict={x: batch_xs, y_: batch_ys},
 		options=tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE),
 		run_metadata=run_metadata
-	))
+	)
 
 	if i % 100 == 0:
 	# Test trained model
