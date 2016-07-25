@@ -35,7 +35,6 @@ flags.DEFINE_string('data_dir', 'data', 'Directory for storing data')
 
 mnist = input_data.read_data_sets(FLAGS.data_dir, one_hot=True)
 
-sess = tf.InteractiveSession()
 
 # Create the model
 
@@ -50,18 +49,24 @@ y = tf.nn.softmax(tf.matmul(x, W) + b)
 
 cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1]))
 train_step = tf.train.GradientDescentOptimizer(0.1).minimize(cross_entropy)
+correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 start_time = timeit.default_timer()
 # Train
-tf.initialize_all_variables().run()
+sess = tf.Session()
+sess.run(tf.initialize_all_variables())
+run_metadata = tf.RunMetadata()
 for i in range(25000):
 	batch_xs, batch_ys = mnist.train.next_batch(100)
-	train_step.run({x: batch_xs, y_: batch_ys})
+	sess.run(train_step(
+		feed_dict={x: batch_xs, y_: batch_ys},
+		options=tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE),
+		run_metadata=run_metadata
+	))
 
 	if i % 100 == 0:
 	# Test trained model
-		correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
-		accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 		print("%d iterations, accuracy: %f" % (i, accuracy.eval({x: mnist.test.images, y_: mnist.test.labels})))
 
 end_time = timeit.default_timer()
